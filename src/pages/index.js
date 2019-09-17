@@ -35,20 +35,6 @@ const IndexPage = props => {
       <Header />
       <main className="site_content">
         <section className="schedule">
-          <div className="days">
-            <a
-              className={classnames('days_link', day === 'js1' ? 'active' : '')}
-              onClick={() => setDay('js1')}
-            >
-              Day 1
-            </a>
-            <a
-              className={classnames('days_link', day === 'js2' ? 'active' : '')}
-              onClick={() => setDay('js2')}
-            >
-              Day 2
-            </a>
-          </div>
 
           {Object.entries(schedule).map(([event, program]) => (
             <div

@@ -1,12 +1,12 @@
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'http://schedule.jsconfbp.com/',
+    siteUrl: 'http://2015.jsconfbp.com/cssconfbp-2019-booklet',
     title: 'Info Screen',
     description: '',
     keywords: '',
-    twitter: '@jsconfbp'
   },
+  pathPrefix: `/cssconfbp-2019-booklet`,
   plugins: [
     `gatsby-plugin-mdx`,
     {
@@ -63,10 +63,6 @@ module.exports = {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
-          {
-            family: `Roboto`,
-            variants: [`300`,`400`,`700`],
-          },
           {
             family: `Rubik`,
             variants: [`300`,`400`,`700`]
