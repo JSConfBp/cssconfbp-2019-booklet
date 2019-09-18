@@ -37,6 +37,7 @@
         }
     }
     &_description {
+        line-height: 1.4rem;
         margin: {
             bottom: 15px;
         }
@@ -66,6 +67,21 @@
         text-transform: uppercase;
         top: 18px;
         right: 16px;
+    }
+
+    .activities {
+        list-style-type: disc;
+        margin: 1rem;
+        margin-bottom: 0;
+
+        li {
+            margin-bottom: 1rem;
+            line-height: 1.4rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
 }
 

@@ -1,38 +1,42 @@
 module.exports = {
-	js1: {
-		'0930': 'Opening JSConf Budapest 2019',
-		'0945': 'mauricio_palma',
-		'1015': 'shelley_vohr',
-		'1045': 'jorge_marin',
-		'1115': 'Coffee break by TRESORIT',
-		'1200': 'charlie_gerard',
-		'1230': 'taylor_fairbank',
-		'1300': 'Lunch by VACUUMLABS',
-		'1430': 'adam_giese',
-		'1500': 'rebecca_hill',
-		'1530': 'Coffee break by TRESORIT',
-		'1615': 'stephanie_nemeth',
-		'1645': 'damini_satya',
-		'1715': 'jake_surma',
-		'1800': 'Dinner',
-		'2000': 'Party',
+	'0930': {
+		title: 'Opening CSSConf Budapest 2019',
 	},
-	js2: {
-		'0900': 'Breakfast',
-		'1000': 'kat_kitay',
-		'1030': 'tejas_kumar',
-		'1100': 'ruben_sospedra',
-		'1130': 'Coffee break by TRESORIT',
-		'1215': 'braden_moore',
-		'1245': 'benedicte_raae',
-		'1315': 'Lunch by VACUUMLABS',
-		'1445': 'eva_ferreira',
-		'1515': 'liran_tal',
-		'1545': 'Coffee break by TRESORIT',
-		'1630': 'balazs_korossy_khayll',
-		'1700': 'vitalii_bobrov',
-		'1730': 'isa_silveira',
-		'1800': 'Closing & Family photo',
-		'1930': 'Party at EXTRA Budapest by TRESORIT',
+	'0945': 'mauricio_palma',
+	'1015': 'shelley_vohr',
+	'1045': 'jorge_marin',
+	'1115': {
+		title: 'Coffee break by TRESORIT',
+		activities: [
+			'Mozilla Minutes (AMA/panel) - New CSS Features at the Mozilla Community Lounge',
+			'Recycle Workshop by RePityke in the Small Hall'
+		]
+	},
+	'1200': 'charlie_gerard',
+	'1230': 'taylor_fairbank',
+	'1300': {
+		title: 'Lunch by VACUUMLABS',
+		activities: [
+			'Accessible Web AMA (panel) at the Mozilla Community Lounge',
+			'Lightning Talks and Demos at the Mozilla Community Lounge',
+			'Recycle Workshop by RePityke in the Small Hall'
+		]
+	},
+	'1430': 'adam_giese',
+	'1500': 'rebecca_hill',
+	'1530': {
+		title: 'Coffee break by TRESORIT',
+		activities: [
+			'Lightning Talks and Demos at the Mozilla Community Lounge'
+		]
+	},
+	'1615': 'stephanie_nemeth',
+	'1645': 'damini_satya',
+	'1715': 'jake_surma',
+	'1800': {
+		title: 'Dinner',
+	},
+	'2000': {
+		title: 'Party',
 	},
 }

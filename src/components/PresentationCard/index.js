@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 import "./index.scss";
 
 export default ({ data, id, onAir }) => {
-  const { name, title, time } = data;
+  const { name, title, time, activities } = data;
   const start = `${time.slice(0, 2)}:${time.slice(2)}`;
 
   return (
@@ -14,6 +14,15 @@ export default ({ data, id, onAir }) => {
       </div>
       <p className="presentation_name">{name}</p>
       <p className="presentation_description">{title}</p>
+
+
+      {activities && (
+        <ul className="activities">
+          {activities.map((activity, i) => (
+            <li key={`activity_${i}`}>{activity}</li>
+          ))}
+        </ul>
+      )}
 
       {name && (
         <Link className="presentation_link" to={`/speakers/${id}`}>

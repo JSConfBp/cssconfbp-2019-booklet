@@ -9,14 +9,16 @@ import schedule from "../../schedule";
 import "./index.scss";
 
 const findSpeaker = (speakers, session) => {
-  const data = speakers.find(speaker => speaker.node.parent.name === session);
-  if (!data) {
+  if (typeof session !== 'string') {
     return {
       session,
-      title: session
-    };
+      title: session.title,
+      activities: session.activities,
+    }
   }
-  return Object.assign({}, data.node.frontmatter, { session });
+
+  const data = speakers.find(speaker => speaker.node.parent.name === session)
+  return Object.assign({}, data.node.frontmatter, { session })
 };
 
 const IndexPage = props => {
@@ -35,56 +37,45 @@ const IndexPage = props => {
       <Header />
       <main className="site_content">
         <section className="schedule">
-          {Object.entries(schedule).map(([event, program]) => (
-            <div
-              key={event}
-              className={classnames(
-                "program",
-                event,
-                day === event ? "show" : ""
-              )}
-            >
-              {Object.entries(program)
-                .sort(([timeA], [timeB]) => {
-                  const a = parseInt(timeA);
-                  const b = parseInt(timeB);
-                  return a - b;
-                })
-                .map(([time, session], index, sessions) => {
-                  const speaker = findSpeaker(speakers, session);
-                  speaker.time = time;
+          {Object.entries(schedule)
+            .sort(([timeA], [timeB]) => {
+              const a = parseInt(timeA);
+              const b = parseInt(timeB);
+              return a - b;
+            })
+            .map(([time, session], index, sessions) => {
+              const speaker = findSpeaker(speakers, session);
+              speaker.time = time;
 
-                  const date = new Date();
-                  const hour = parseInt(time.slice(0, 2), 10);
-                  const minute = parseInt(time.slice(2), 10);
+              const date = new Date();
+              const hour = parseInt(time.slice(0, 2), 10);
+              const minute = parseInt(time.slice(2), 10);
 
-                  let onAir =
-                    date.getHours() === hour && date.getMinutes() >= minute;
+              let onAir =
+                date.getHours() === hour && date.getMinutes() >= minute;
 
-                  if (sessions[index + 1]) {
-                    const nextDate = sessions[index + 1][0];
-                    const nextHour = parseInt(nextDate.slice(0, 2), 10);
-                    const nextMinute = parseInt(nextDate.slice(2), 10);
+              if (sessions[index + 1]) {
+                const nextDate = sessions[index + 1][0];
+                const nextHour = parseInt(nextDate.slice(0, 2), 10);
+                const nextMinute = parseInt(nextDate.slice(2), 10);
 
-                    onAir =
-                      onAir &&
-                      !(
-                        date.getHours() === nextHour &&
-                        date.getMinutes() >= nextMinute
-                      );
-                  }
-
-                  return (
-                    <PresentationCard
-                      onAir={onAir}
-                      key={`${event}-${time}-${session}`}
-                      id={session}
-                      data={speaker}
-                    />
+                onAir =
+                  onAir &&
+                  !(
+                    date.getHours() === nextHour &&
+                    date.getMinutes() >= nextMinute
                   );
-                })}
-            </div>
-          ))}
+              }
+
+              return (
+                <PresentationCard
+                  onAir={onAir}
+                  key={`${time}-${session}`}
+                  id={session}
+                  data={speaker}
+                />
+              );
+            })}
         </section>
       </main>
       <Footer />
