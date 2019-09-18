@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import classnames from 'classnames'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import VenueMap from '../components/VenueMap'
+import React, { useState } from "react";
+import classnames from "classnames";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import VenueMap from "../components/VenueMap";
 
-import './index.scss'
+import "./index.scss";
 
 const ContactPage = props => {
   return (
@@ -26,7 +26,7 @@ const ContactPage = props => {
       </main>
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default ContactPage
+export default ContactPage;

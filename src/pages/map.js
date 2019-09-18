@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import classnames from 'classnames'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import VenueMap from '../components/VenueMap'
+import React, { useState } from "react";
+import classnames from "classnames";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import VenueMap from "../components/VenueMap";
 
-import './index.scss'
+import "./index.scss";
 
 const MapPage = props => {
   return (
@@ -22,7 +22,7 @@ const MapPage = props => {
       </main>
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default MapPage
+export default MapPage;

@@ -1,8 +1,8 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import ProfileImage from '../ProfileImage'
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
+import ProfileImage from "../ProfileImage";
 
-const SpeakerImage = ({ image, color, className = '' }) => (
+const SpeakerImage = ({ image, color, className = "" }) => (
   <StaticQuery
     query={graphql`
       query speakerImgQuery {
@@ -24,8 +24,8 @@ const SpeakerImage = ({ image, color, className = '' }) => (
     render={data => {
       return data.source.edges
         .filter(({ node }) => {
-          const { src } = node.childImageSharp.fluid
-          return src.includes(image)
+          const { src } = node.childImageSharp.fluid;
+          return src.includes(image);
         })
         .map(({ node }, i) => (
           <ProfileImage
@@ -34,8 +34,8 @@ const SpeakerImage = ({ image, color, className = '' }) => (
             color={color}
             key={`speaker-image-${i}`}
           />
-        ))
+        ));
     }}
   />
-)
-export default SpeakerImage
+);
+export default SpeakerImage;

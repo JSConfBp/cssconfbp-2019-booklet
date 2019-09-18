@@ -1,7 +1,7 @@
-import React from 'react'
-import './index.scss'
+import React from "react";
+import "./index.scss";
 
-export default ({ classNameName = '' }) => (
+export default ({ classNameName = "" }) => (
   <div className="map-container">
     <svg
       version="1.1"
@@ -767,4 +767,4 @@ export default ({ classNameName = '' }) => (
       </g>
     </svg>
   </div>
-)
+);

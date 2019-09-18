@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from "react";
+import { Link } from "gatsby";
 export default () => (
   <footer className="site_footer">
     <nav className="site_footer_nav">
@@ -22,4 +22,4 @@ export default () => (
       </ul>
     </nav>
   </footer>
-)
+);

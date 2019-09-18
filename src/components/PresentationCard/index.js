@@ -1,11 +1,11 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from "react";
+import { Link } from "gatsby";
 
-import './index.scss'
+import "./index.scss";
 
 export default ({ data, id, onAir }) => {
-  const { name, title, time } = data
-  const start = `${time.slice(0, 2)}:${time.slice(2)}`
+  const { name, title, time } = data;
+  const start = `${time.slice(0, 2)}:${time.slice(2)}`;
 
   return (
     <div className="presentation">
@@ -23,5 +23,5 @@ export default ({ data, id, onAir }) => {
 
       {onAir && <span className="presentation_live">On air</span>}
     </div>
-  )
-}
+  );
+};

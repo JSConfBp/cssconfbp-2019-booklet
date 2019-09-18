@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
 export default class HTML extends React.Component {
   render() {
@@ -18,15 +18,15 @@ export default class HTML extends React.Component {
           {this.props.preBodyComponents}
           <div
             key={`body`}
-            style={{ height: '100%', position: `relative` }}
-            className={'wrapper'}
+            style={{ height: "100%", position: `relative` }}
+            className={"wrapper"}
             id="___gatsby"
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
           {this.props.postBodyComponents}
         </body>
       </html>
-    )
+    );
   }
 }
 
@@ -36,5 +36,5 @@ HTML.propTypes = {
   bodyAttributes: PropTypes.object,
   preBodyComponents: PropTypes.array,
   body: PropTypes.string,
-  postBodyComponents: PropTypes.array,
-}
+  postBodyComponents: PropTypes.array
+};

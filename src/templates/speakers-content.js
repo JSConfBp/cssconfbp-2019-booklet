@@ -1,13 +1,13 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import classnames from 'classnames'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Link } from 'gatsby'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import './speakers.scss'
+import React from "react";
+import { graphql } from "gatsby";
+import classnames from "classnames";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import { Link } from "gatsby";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import "./speakers.scss";
 
-import SpeakerImage from '../components/SpeakerImage'
+import SpeakerImage from "../components/SpeakerImage";
 
 function SpeakersContentTemplate({ data: { mdx } }) {
   const {
@@ -21,8 +21,8 @@ function SpeakersContentTemplate({ data: { mdx } }) {
     twitter,
     github,
     company,
-    company_url,
-  } = mdx.frontmatter
+    company_url
+  } = mdx.frontmatter;
 
   return (
     <>
@@ -106,10 +106,10 @@ function SpeakersContentTemplate({ data: { mdx } }) {
       </main>
       <Footer />
     </>
-  )
+  );
 }
 
-export default SpeakersContentTemplate
+export default SpeakersContentTemplate;
 
 export const pageQuery = graphql`
   query($id: String!) {
@@ -131,4 +131,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

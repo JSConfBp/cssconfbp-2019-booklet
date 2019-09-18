@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-import './index.scss'
+import "./index.scss";
 
 export default () => (
   <header className="page-header">
@@ -12,4 +12,4 @@ export default () => (
       </span>
     </div>
   </header>
-)
+);

@@ -1,27 +1,27 @@
-import React, { useState } from 'react'
-import classnames from 'classnames'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import PresentationCard from '../components/PresentationCard'
+import React, { useState } from "react";
+import classnames from "classnames";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import PresentationCard from "../components/PresentationCard";
 
-import schedule from '../../schedule'
+import schedule from "../../schedule";
 
-import './index.scss'
+import "./index.scss";
 
 const findSpeaker = (speakers, session) => {
-  const data = speakers.find(speaker => speaker.node.parent.name === session)
+  const data = speakers.find(speaker => speaker.node.parent.name === session);
   if (!data) {
     return {
       session,
-      title: session,
-    }
+      title: session
+    };
   }
-  return Object.assign({}, data.node.frontmatter, { session })
-}
+  return Object.assign({}, data.node.frontmatter, { session });
+};
 
 const IndexPage = props => {
-  const speakers = props.data.allMdx.edges
-  const [day, setDay] = useState(new Date().getDate() === 27 ? 'js2' : 'js1')
+  const speakers = props.data.allMdx.edges;
+  const [day, setDay] = useState(new Date().getDate() === 27 ? "js2" : "js1");
 
   return (
     <>
@@ -35,44 +35,43 @@ const IndexPage = props => {
       <Header />
       <main className="site_content">
         <section className="schedule">
-
           {Object.entries(schedule).map(([event, program]) => (
             <div
               key={event}
               className={classnames(
-                'program',
+                "program",
                 event,
-                day === event ? 'show' : ''
+                day === event ? "show" : ""
               )}
             >
               {Object.entries(program)
                 .sort(([timeA], [timeB]) => {
-                  const a = parseInt(timeA)
-                  const b = parseInt(timeB)
-                  return a - b
+                  const a = parseInt(timeA);
+                  const b = parseInt(timeB);
+                  return a - b;
                 })
                 .map(([time, session], index, sessions) => {
-                  const speaker = findSpeaker(speakers, session)
-                  speaker.time = time
+                  const speaker = findSpeaker(speakers, session);
+                  speaker.time = time;
 
-                  const date = new Date()
-                  const hour = parseInt(time.slice(0, 2), 10)
-                  const minute = parseInt(time.slice(2), 10)
+                  const date = new Date();
+                  const hour = parseInt(time.slice(0, 2), 10);
+                  const minute = parseInt(time.slice(2), 10);
 
                   let onAir =
-                    date.getHours() === hour && date.getMinutes() >= minute
+                    date.getHours() === hour && date.getMinutes() >= minute;
 
                   if (sessions[index + 1]) {
-                    const nextDate = sessions[index + 1][0]
-                    const nextHour = parseInt(nextDate.slice(0, 2), 10)
-                    const nextMinute = parseInt(nextDate.slice(2), 10)
+                    const nextDate = sessions[index + 1][0];
+                    const nextHour = parseInt(nextDate.slice(0, 2), 10);
+                    const nextMinute = parseInt(nextDate.slice(2), 10);
 
                     onAir =
                       onAir &&
                       !(
                         date.getHours() === nextHour &&
                         date.getMinutes() >= nextMinute
-                      )
+                      );
                   }
 
                   return (
@@ -82,7 +81,7 @@ const IndexPage = props => {
                       id={session}
                       data={speaker}
                     />
-                  )
+                  );
                 })}
             </div>
           ))}
@@ -90,10 +89,10 @@ const IndexPage = props => {
       </main>
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
 
 export const query = graphql`
   query HomePage {
@@ -116,4 +115,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
