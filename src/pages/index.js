@@ -9,16 +9,16 @@ import schedule from "../../schedule";
 import "./index.scss";
 
 const findSpeaker = (speakers, session) => {
-  if (typeof session !== 'string') {
+  if (typeof session !== "string") {
     return {
       session,
       title: session.title,
-      activities: session.activities,
-    }
+      activities: session.activities
+    };
   }
 
-  const data = speakers.find(speaker => speaker.node.parent.name === session)
-  return Object.assign({}, data.node.frontmatter, { session })
+  const data = speakers.find(speaker => speaker.node.parent.name === session);
+  return Object.assign({}, data.node.frontmatter, { session });
 };
 
 const IndexPage = props => {
